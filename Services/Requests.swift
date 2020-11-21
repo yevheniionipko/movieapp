@@ -8,7 +8,8 @@
 import Foundation
 
 struct Requests {
-    static func findMovie(id: String) -> Void {
+    static func findMovie(id: String, completionHandler: @escaping (Movie?) -> Void) -> Void {
+        
         let request = URLRequest(url: BaseService.findMovie(id: id).path)
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             if let error = error {
@@ -25,10 +26,7 @@ struct Requests {
             
             do {
                 let res = try JSONDecoder().decode(Movie.self, from: data!)
-              
-                res.results.forEach { value in
-                    print(value.title)
-                }
+                completionHandler(res)
 
             } catch let error as NSError {
                 print(error.debugDescription)

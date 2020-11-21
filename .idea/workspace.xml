@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90e113d3-7eea-433b-8742-ff8cd5b155e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/BaseService.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/Constants.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/Models.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/Requests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +38,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605026677561</updated>
       <workItem from="1605026679577" duration="830000" />
-      <workItem from="1605632450903" duration="348000" />
+      <workItem from="1605632450903" duration="1680000" />
+      <workItem from="1605681652133" duration="2000" />
     </task>
     <servers />
   </component>

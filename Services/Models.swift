@@ -8,12 +8,12 @@
 import Foundation
 
 struct MovieResults: Codable {
-//    let poster_path: String
     let adult: Bool
     let overview: String
     let release_date: String
     let id: Int
     let title: String
+    let poster_path: String?
 }
 
 struct Movie: Codable {
