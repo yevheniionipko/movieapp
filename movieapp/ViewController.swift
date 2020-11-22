@@ -7,13 +7,32 @@
 
 import UIKit
 
+let DEBOUNCE_TIMEOUT_MS: Int = 1000
+let DEFAULT_SEARCH: String = "Мстители"
+
 class ViewController: UIViewController {
     var movie: Movie = Movie(results: [MovieResults]())
-
+    @IBOutlet weak var textField: UITextField!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        Requests.findMovie(id: "Avengers") { movie in
+        self.searchMovies(DEFAULT_SEARCH)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    @IBAction func onInput(_ sender: Any) {
+        if textField.text == "" {
+            self.searchMovies(DEFAULT_SEARCH)
+            return
+        }
+        Helpers.shared.debounce(interval: DEBOUNCE_TIMEOUT_MS, queue: DispatchQueue.main, action: {
+            self.searchMovies(self.textField.text)
+        })()
+    }
+    
+    func searchMovies(_ id: String?) -> Void {
+        Requests.findMovie(id: id ?? "") { movie in
             if let mov = movie {
                 DispatchQueue.main.async {
                     self.movie = mov
@@ -22,11 +41,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
-
-
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
