@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90e113d3-7eea-433b-8742-ff8cd5b155e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Common/Helpers.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Debouncer.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/BaseService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Services/BaseService.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieapp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movieapp/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieapp/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp/ViewController.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +55,10 @@
       <screen x="1680" y="-213" width="1920" height="1057" />
     </state>
     <state x="1901" y="-119" key="DiffContextDialog/1680.-213.1920.1057/0.23.1680.952@1680.-213.1920.1057" timestamp="1606038244526" />
-    <state x="2165" y="-102" key="RollbackChangesDialog" timestamp="1606038399934">
+    <state x="2165" y="-102" key="RollbackChangesDialog" timestamp="1606065276362">
       <screen x="1680" y="-213" width="1920" height="1057" />
     </state>
-    <state x="2165" y="-102" key="RollbackChangesDialog/1680.-213.1920.1057/0.23.1680.952@1680.-213.1920.1057" timestamp="1606038399934" />
+    <state x="2165" y="-102" key="RollbackChangesDialog/1680.-213.1920.1057/0.23.1680.952@1680.-213.1920.1057" timestamp="1606065276362" />
     <state x="2424" y="185" key="VCS.ChangelistChooser" timestamp="1606038396271">
       <screen x="1680" y="-213" width="1920" height="1057" />
     </state>
