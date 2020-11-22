@@ -21,7 +21,8 @@ extension BaseService {
   var path: URL {
     switch self {
     case .findMovie(let id):
-      return URL(string: "\(url)/search/movie?api_key=\(ApiConstants.API_KEY)&language=en-US&query=\(id)&page=1&include_adult=false")!
+        let path: String = "\(url)/search/movie?api_key=\(ApiConstants.API_KEY)&language=ru-RU&query=\(id)&page=1&include_adult=false"
+        return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
     case .discoverMovie:
       return URL(string: "\(url)/discover/movie")!
     }
