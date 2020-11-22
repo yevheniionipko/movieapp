@@ -7,10 +7,11 @@
 
 import UIKit
 
-let DEBOUNCE_TIMEOUT_MS: Int = 1000
+let DEBOUNCE_TIMEOUT: Double = 1 // 1000 ms
 let DEFAULT_SEARCH: String = "Мстители"
 
 class ViewController: UIViewController {
+    let debouncer = Debouncer(timeInterval: DEBOUNCE_TIMEOUT)
     var movie: Movie = Movie(results: [MovieResults]())
     @IBOutlet weak var textField: UITextField!
     
@@ -26,9 +27,10 @@ class ViewController: UIViewController {
             self.searchMovies(DEFAULT_SEARCH)
             return
         }
-        Helpers.shared.debounce(interval: DEBOUNCE_TIMEOUT_MS, queue: DispatchQueue.main, action: {
+        debouncer.renewInterval()
+        debouncer.handler = {
             self.searchMovies(self.textField.text)
-        })()
+        }
     }
     
     func searchMovies(_ id: String?) -> Void {
