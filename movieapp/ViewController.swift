@@ -13,6 +13,9 @@ let DEFAULT_SEARCH: String = "Мстители"
 class ViewController: UIViewController {
     let debouncer = Debouncer(timeInterval: DEBOUNCE_TIMEOUT)
     var movie: Movie = Movie(results: [MovieResults]())
+    var isLoading = false
+    var page = 1
+    
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,25 +26,49 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     @IBAction func onInput(_ sender: Any) {
-        if textField.text == "" {
-            self.searchMovies(DEFAULT_SEARCH)
-            return
+        if (self.page > 1) {
+            self.resetPage()
         }
+        
+        guard let result = textField.text else { return }
+        
+        let text = result.isEmpty
+            ? DEFAULT_SEARCH
+            : self.textField.text
+
         debouncer.renewInterval()
         debouncer.handler = {
-            self.searchMovies(self.textField.text)
+            self.searchMovies(text)
         }
     }
     
     func searchMovies(_ id: String?) -> Void {
-        Requests.findMovie(id: id ?? "") { movie in
+        Requests.findMovie(id: id ?? "", page: self.page) { movie in
             if let mov = movie {
                 DispatchQueue.main.async {
                     self.movie = mov
                     self.collectionView.reloadData()
-                    
                 }
             }
+        }
+    }
+    
+    func resetPage () {
+        self.page = 1
+    }
+    
+    func getNextPage() {
+        let nextPage = self.page + 1
+        Requests.findMovie(id: self.textField.text ?? "", page: nextPage) { movie in
+            if let mov = movie {
+                DispatchQueue.main.async {
+                    guard !mov.results.isEmpty else { return }
+                    self.movie.results.append(contentsOf: mov.results)
+                    self.collectionView.reloadData()
+                    self.page = nextPage
+                }
+            }
+            self.isLoading = false
         }
     }
 }
@@ -69,5 +96,19 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.cornerRadius = 10
         
         return cell
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height + 100 ) && !self.isLoading){
+            guard !self.isLoading else { return }
+            self.isLoading = true
+            debouncer.renewInterval()
+            debouncer.handler = {
+                print("ppp")
+                self.getNextPage()
+            }
+        }
     }
 }

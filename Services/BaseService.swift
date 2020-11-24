@@ -8,7 +8,7 @@
 import Foundation
 
 public enum BaseService {
-  case findMovie(id: String)
+    case findMovie(id: String, page: Int)
     case discoverMovieByGenre(genre: String)
 }
 
@@ -20,8 +20,8 @@ extension BaseService {
 
   var path: URL {
     switch self {
-    case .findMovie(let id):
-        let path: String = "\(url)/search/movie?api_key=\(ApiConstants.API_KEY)&language=ru-RU&query=\(id)&page=1&include_adult=false"
+    case .findMovie(let id, let page):
+        let path: String = "\(url)/search/movie?api_key=\(ApiConstants.API_KEY)&language=ru-RU&query=\(id)&page=\(page)&include_adult=false"
         return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
     case .discoverMovieByGenre(let genre):
         let path: String = "\(url)/discover/movie?api_key=\(ApiConstants.API_KEY)&with_genres=\(genre)"
