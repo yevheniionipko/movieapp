@@ -8,9 +8,9 @@
 import Foundation
 
 struct Requests {
-    static func findMovie(id: String, completionHandler: @escaping (Movie?) -> Void) -> Void {
-        
-        let request = URLRequest(url: BaseService.findMovie(id: id).path)
+    static func findMovie(id: String, page: Int, completionHandler: @escaping (Movie?) -> Void) -> Void {
+        print(page)
+        let request = URLRequest(url: BaseService.findMovie(id: id, page: page).path)
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             if let error = error {
               print("Error with fetching films: \(error)")
