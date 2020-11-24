@@ -9,7 +9,7 @@ import Foundation
 
 public enum BaseService {
   case findMovie(id: String)
-  case discoverMovie
+    case discoverMovieByGenre(genre: String)
 }
 
 extension BaseService {
@@ -23,8 +23,9 @@ extension BaseService {
     case .findMovie(let id):
         let path: String = "\(url)/search/movie?api_key=\(ApiConstants.API_KEY)&language=ru-RU&query=\(id)&page=1&include_adult=false"
         return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-    case .discoverMovie:
-      return URL(string: "\(url)/discover/movie")!
+    case .discoverMovieByGenre(let genre):
+        let path: String = "\(url)/discover/movie?api_key=\(ApiConstants.API_KEY)&with_genres=\(genre)"
+        return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
     }
   }
 

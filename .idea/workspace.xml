@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90e113d3-7eea-433b-8742-ff8cd5b155e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Common/Debouncer.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Genres/GenresViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieapp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp.xcworkspace/xcuserdata/onipkojenya.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movieapp/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp/ViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movieapp/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/movieapp/Base.lproj/Main.storyboard" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
